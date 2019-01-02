@@ -3,46 +3,69 @@ import course_1 from '../images/course_1.jpg'
 import course_2 from '../images/course_2.jpg'
 import course_3 from '../images/course_3.jpg'
 import {Link} from "react-router-dom";
+import apiCall from '../../utils/ultility';
+import { loadBestCourses } from '../../js/actions/index';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+  return {
+    courses: state.bestCourses
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadBestCourses: courses => dispatch(loadBestCourses(courses))
+  }
+}
+
 class Course extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      courses: [
-        {
-          img: course_1,
-          title: "Vocabulary",
-          instructors: "Mai Nam Hai",
-          lang: "English",
-          description: "Everything is easy",
-          price: "150$",
-          participants: "123"
-        },
-        {
-          img: course_2,
-          title: "Grammar",
-          instructors: "Inferno",
-          lang: "Japanese",
-          description: "Get an JLPT N3",
-          price: "350$",
-          participants: "500"
-        },
-        {
-          img: course_3,
-          title: "Listening",
-          instructors: "Vodkashinikov",
-          lang: "Spainish",
-          description: "Hearing aid",
-          price: "300$",
-          participants: "40"
-        },
-      ]
-    }
+    // this.state = {
+    //   courses: [
+    //     {
+    //       img: course_1,
+    //       title: "Vocabulary",
+    //       instructors: "Mai Nam Hai",
+    //       lang: "English",
+    //       description: "Everything is easy",
+    //       price: "150$",
+    //       participants: "123"
+    //     },
+    //     {
+    //       img: course_2,
+    //       title: "Grammar",
+    //       instructors: "Inferno",
+    //       lang: "Japanese",
+    //       description: "Get an JLPT N3",
+    //       price: "350$",
+    //       participants: "500"
+    //     },
+    //     {
+    //       img: course_3,
+    //       title: "Listening",
+    //       instructors: "Vodkashinikov",
+    //       lang: "Spainish",
+    //       description: "Hearing aid",
+    //       price: "300$",
+    //       participants: "40"
+    //     },
+    //   ]
+    // }
   }
+
+  componentDidMount() {
+    apiCall('courses').then(res => {
+      this.props.loadBestCourses(res.data.tableData.data.slice(0,3))
+    });
+  }
+
   render() {
     return (
       <div className="row courses_row">
       {
-        this.state.courses.map((item,idex) => (
+        this.props.courses.map((item,idex) => (
           <div className="col-lg-4 course_col">
         <div className="course">
           <div className="course_image">
@@ -50,7 +73,7 @@ class Course extends React.Component {
           </div>
           <div className="course_body">
             <div className="course_title">
-            <Link to="/courses">{item.title}</Link>
+            <Link to="/courses">{item.name}</Link>
             </div>
             <div className="course_info">
               <ul>
@@ -78,7 +101,7 @@ class Course extends React.Component {
               <span>4,5</span>
             </div>
             <div className="course_mark course_free trans_200">
-              <a href="#">{item.price}</a>
+              <a href="#">{item.fee}</a>
             </div>
           </div>
         </div>
@@ -90,4 +113,4 @@ class Course extends React.Component {
   }
 }
 
-export default Course;
+export default connect(mapStateToProps, mapDispatchToProps)(Course);

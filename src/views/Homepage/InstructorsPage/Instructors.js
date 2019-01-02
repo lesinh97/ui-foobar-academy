@@ -1,5 +1,8 @@
 import React from "react";
 import SingleInstructor from './SingleInstructor';
+import { loadInstructors } from '../../../js/actions/index';
+import { connect } from 'react-redux';
+import apiCall from '../../../utils/ultility';
 
 import img1 from '../../../components/images/instructor_1.jpg';
 import img2 from '../../../components/images/instructor_2.jpg';
@@ -11,58 +14,75 @@ import img7 from '../../../components/images/instructor_7.jpg';
 import img8 from '../../../components/images/instructor_8.jpg';
 import img9 from '../../../components/images/instructor_9.jpg';
 
+const mapStateToProps = state => {
+  return {
+    teachers: state.instructors
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadInstructors: instructors => dispatch(loadInstructors(instructors))
+  }
+}
 class Instructors extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      teachers: [
-        {
-          img: img1,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img2,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img3,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img4,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img5,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img6,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img7,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img8,
-          name: "Mai Nam Hai",
-          title: "Lecturer"
-        },
-        {
-          img: img9,
-          name: "Nademan",
-          title: "Pro player"
-        },
-      ]
-    }
+    // this.state = {
+    //   teachers: [
+    //     {
+    //       img: img1,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img2,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img3,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img4,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img5,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img6,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img7,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img8,
+    //       name: "Mai Nam Hai",
+    //       title: "Lecturer"
+    //     },
+    //     {
+    //       img: img9,
+    //       name: "Nademan",
+    //       title: "Pro player"
+    //     },
+    //   ]
+    // }
+  }
+
+  componentDidMount() {
+    apiCall('teachers').then(res =>
+      this.props.loadInstructors(res.data)
+    );
   }
   render() {
     return (
@@ -76,7 +96,7 @@ class Instructors extends React.Component {
             </div>
           </div>
           <div className="row teachers_row">
-            { this.state.teachers.map((item,index)=> (
+            { this.props.teachers.map((item,index)=> (
               <SingleInstructor img = {item.img} title = {item.title} name = {item.name} /> 
             ))
             }
@@ -87,4 +107,4 @@ class Instructors extends React.Component {
   }
 }
 
-export default Instructors;
+export default connect(mapStateToProps, mapDispatchToProps)(Instructors);
