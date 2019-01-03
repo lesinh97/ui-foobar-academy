@@ -3,6 +3,7 @@ import CourseFeature from "./CourseFeature";
 import LikeItem from "./LikeItem";
 import cert from "../../../../../../components/images/cert.jpg";
 import Modal from 'react-modal';
+import apiCall from "../../../../../../utils/ultility";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -32,6 +33,16 @@ class Sidebar extends React.Component {
     this.setState({
       [name]: event.target.value
     })
+  }
+
+  btnSubmitClick = () => {
+    apiCall('messages', 'POST', {
+      name: this.state.formName,
+      phone: this.state.formPhone,
+      email: this.state.formEmail,
+      note: this.state.formNaiyou,
+      checked: false
+    }).then(res => console.log(res))
   }
   render() {
     const customStyles = {
