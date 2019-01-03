@@ -71,7 +71,7 @@ class Instructors extends React.Component {
         }
       })
       this.props.loadInstructors(dataaaa);
-      console.log(dataaaa);
+      // console.log(dataaaa);
     }
     );
   }

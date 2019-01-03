@@ -5,7 +5,10 @@ const initialState = {
   bestCourses: [],
   instructors: [],
   bestInstructors: [],
-  singleCourse: []
+  singleCourse: {
+    courseData: {},
+    courseClass: []
+  }
 };
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -27,7 +30,10 @@ const rootReducer = (state = initialState, action) => {
       }
     case types.LOAD_SINGLE_COURSE:
       return {...state,
-        singleCourse: [...action.payload]
+        singleCourse: {
+          courseClass: [...action.payload.courseClass],
+          courseData: {...action.payload.courseData[0]}
+        }
       }
     default:
       return {...state}
