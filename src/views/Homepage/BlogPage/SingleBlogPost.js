@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 import blog_7 from '../../../components/images/blog_7.jpg'
 class SingleBlogPost extends React.Component {
   render() {
@@ -16,10 +16,10 @@ class SingleBlogPost extends React.Component {
             />
             <div className="blog_title_container">
               <div className="blog_post_category">
-                <a href="#">travel</a>
+                <a href="#">Nova Gold</a>
               </div>
               <div className="blog_post_title">
-                <a href="blog_single.html">How to learn English</a>
+                <Link to="/blog_detail">How to learn English</Link>
               </div>
               <div className="blog_post_text">
                 <p>

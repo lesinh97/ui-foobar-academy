@@ -42,7 +42,7 @@ class SingleCourse extends React.Component {
               <span>4,5</span>
             </div>
             <div className="course_mark course_free trans_200">
-              <a href="#">Free</a>
+              <a href="#">{this.props.fee}</a>
             </div>
           </div>
         </div>

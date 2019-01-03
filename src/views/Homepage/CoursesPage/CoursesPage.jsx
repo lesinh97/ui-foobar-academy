@@ -118,7 +118,7 @@ class CoursePage extends React.Component {
         <div className="container">  
           <div className="row courses_row">
             {this.props.single_course.map((item,index)=> (
-              <SingleCourse img ={item.img} title ={item.name} instructor = {item.instructor} lang = {item.lang} id = {item.id} />
+              <SingleCourse img ={item.img} title ={item.name} instructor = {item.instructor} lang = {item.lang} id = {item.id} fee= {item.fee} />
             ))}
           </div>
           <div className="row">

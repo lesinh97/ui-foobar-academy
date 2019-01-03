@@ -26,6 +26,12 @@ const AsyncBlogPage = asyncComponent(() => {
 const AsyncCourseDetailPage = asyncComponent(() => {
     return import('../../views/Homepage/CoursesPage/CourseDetail/CourseDetail');
 });
+const AsyncBlogDetailPage = asyncComponent(() => {
+    return import('../../views/Homepage/BlogPage/BlogDetail/BlogDetail');
+});
+const AsyncContactPage = asyncComponent(() => {
+    return import('../../views/Homepage/ContactPage/ContactPage');
+});
 class Homepage extends Component{
     constructor(props) {
       super(props);
@@ -37,6 +43,8 @@ class Homepage extends Component{
                 <Route path="/courses" component={AsyncCoursePage} />
                 <Route path="/instructors" component={AsyncTeacherPage} />
                 <Route path="/blogs" component={AsyncBlogPage} />
+                <Route path="/blog_detail" component={AsyncBlogDetailPage} />
+                <Route path="/contact" component={AsyncContactPage} />
                 <Route path="/course_detail/:id" component={AsyncCourseDetailPage} />
                 <Redirect exact from="/" to="/homepage" />
             </Switch>
