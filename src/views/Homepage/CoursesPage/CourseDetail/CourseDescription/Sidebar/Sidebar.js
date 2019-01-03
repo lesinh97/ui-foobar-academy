@@ -34,6 +34,17 @@ class Sidebar extends React.Component {
     })
   }
   render() {
+    const customStyles = {
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)'
+      }
+    };
+    
     return (
       <div className="sidebar">
         <div className="sidebar_background" />
@@ -41,6 +52,7 @@ class Sidebar extends React.Component {
           <a href="#" data-toggle="modal" data-target="#squarespaceModal" role= "button" onClick={this.openModal} >Apply this course</a>
         </div>
         <Modal
+        style={customStyles}
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Example Modal"
