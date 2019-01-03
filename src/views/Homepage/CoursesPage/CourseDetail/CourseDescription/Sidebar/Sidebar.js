@@ -1,18 +1,104 @@
 import React from "react";
 import CourseFeature from "./CourseFeature";
 import LikeItem from "./LikeItem";
-import Modal from "./Modal";
 import cert from "../../../../../../components/images/cert.jpg";
+import Modal from 'react-modal';
+
 class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: false,
+      formName: "",
+      formEmail: "",
+      formPhone: "",
+      formNaiyou: "",
+    };
+
+    this.openModal = this.openModal.bind(this);
+
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    })
+  }
   render() {
     return (
       <div className="sidebar">
         <div className="sidebar_background" />
         <div className="sidebar_top">
-          <a href="#" data-toggle="modal" data-target="#squarespaceModal" role= "button" >Apply this course</a>
+          <a href="#" data-toggle="modal" data-target="#squarespaceModal" role= "button" onClick={this.openModal} >Apply this course</a>
         </div>
-        {}
-        <Modal />
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          contentLabel="Example Modal"
+        >
+        <div id = 'squarespaceModal'>
+        <div className="register_form_container">
+            <div className="register_form_title">Join this course. Get high</div>
+            <form action="#" id="register_form" className="register_form">
+              <div className="row register_row">
+                <div className="col-lg-6 register_col">
+                  <input
+                    type="text"
+                    className="form_input"
+                    placeholder="Name"
+                    value={this.state.formName}
+                    required="required"
+                    onChange={this.handleChange('formName')}
+                  />
+                </div>
+                <div className="col-lg-6 register_col">
+                  <input
+                    type="email"
+                    className="form_input"
+                    placeholder="Email"
+                    value={this.state.formEmail}
+                    required="required"
+                    onChange={this.handleChange('formEmail')}
+                  />
+                </div>
+                <div className="col-lg-6 register_col">
+                  <input
+                    type="tel"
+                    className="form_input"
+                    placeholder="Phone"
+                    value={this.state.formPhone}
+                    onChange={this.handleChange('formPhone')}
+                  />
+                </div>
+                <div className="col-lg-6 register_col">
+                  <input
+                    type="url"
+                    className="form_input"
+                    placeholder="Note"
+                    value={this.state.formNaiyou}
+                    onChange={this.handleChange('formNaiyou')}
+                  />
+                </div>
+                <div className="col">
+                  <button className="form_button trans_200" onClick={this.btnSubmitClick}>
+                    get it now
+                </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+        </Modal>
+
         <div className="sidebar_content">
           {}
           <div className="sidebar_section features">

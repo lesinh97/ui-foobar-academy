@@ -4,6 +4,7 @@ import CurriculumTag from "./CourseDescription/CurriculumTag/CurriculumTag";
 import ReviewTag from "./CourseDescription/ReviewTag/ReviewTag";
 import MemberTag from "./CourseDescription/MemberTag/MemberTag";
 import Sidebar from "./CourseDescription/Sidebar/Sidebar";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 class CourseDescription extends React.Component {
   render() {
@@ -20,24 +21,36 @@ class CourseDescription extends React.Component {
                   <div className="container">
                     <div className="row">
                       <div className="col-lg-9">
-                        <div className="tabs d-flex flex-row align-items-center justify-content-start">
-                          <div className="tab">description</div>
-                          <div className="tab active">curriculum</div>
-                          <div className="tab">reviews</div>
-                          <div className="tab">members</div>
-                        </div>
+                          <Tabs >
+                            <TabList>
+                            <div className="tabs d-flex flex-row align-items-center justify-content-start">
+                              <Tab><div className="tab">description</div></Tab> 
+                              <Tab><div className="tab">curriculum</div></Tab>
+                              <Tab><div className="tab">reviews</div></Tab>
+                              <Tab><div className="tab">members</div></Tab>
+                            </div>
+                            </TabList>
+                            <TabPanel>
+                              {}
+                              <DescriptionTag />
+                            </TabPanel>
+                            <TabPanel>
+                              {}
+                              <CurriculumTag />
+                            </TabPanel>
+                            <TabPanel>
+                              {}
+                              <ReviewTag />
+                            </TabPanel>
+                            <TabPanel>
+                              {}
+                              <MemberTag />
+                            </TabPanel>
+                            </Tabs>
                       </div>
                     </div>
                   </div>
                 </div>
-                {}
-                <DescriptionTag />
-                {}
-                <CurriculumTag />
-                {}
-                <ReviewTag />
-                {}
-                <MemberTag />
               </div>
             </div>
             {}

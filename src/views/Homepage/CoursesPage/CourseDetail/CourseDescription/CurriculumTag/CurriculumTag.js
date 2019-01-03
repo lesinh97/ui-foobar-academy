@@ -4,7 +4,7 @@ import CurItem from "./CurItem";
 class CurriculumTag extends React.Component {
   render() {
     return (
-      <div className="tab_panel curriculum">
+      <div className="tab_panel curriculum active">
         <div className="panel_title">Syllabus</div>
         <div className="panel_text">
           <p>

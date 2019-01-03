@@ -5,7 +5,7 @@ import CourseFaqs from "./CourseFaqs";
 class DescriptionTag extends React.Component {
   render() {
     return (
-      <div className="tab_panel description">
+      <div className="tab_panel description active">
         <div className="panel_title">About this course</div>
         <div className="panel_text">
           <p>

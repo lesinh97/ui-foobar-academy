@@ -5,7 +5,7 @@ import SingleReview from "./SingleReview";
 class ReviewTag extends React.Component {
   render() {
     return (
-      <div className="tab_panel reviews">
+      <div className="tab_panel reviews active">
         <div className="panel_title">Reviews</div>
         <div className="panel_text">
           <p>
