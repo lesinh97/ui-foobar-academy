@@ -14,7 +14,7 @@ class CourseIntro extends React.Component {
             <div className="col">
               <div className="intro_container d-flex flex-column align-items-start justify-content-end">
                 <div className="intro_content">
-                  <div className="intro_price">Free</div>
+                  <div className="intro_price">{this.props.fee}</div>
                   <div className="rating_r rating_r_4 intro_rating">
                     <i />
                     <i />
@@ -22,7 +22,7 @@ class CourseIntro extends React.Component {
                     <i />
                     <i />
                   </div>
-                  <div className="intro_title">Vocabulary. Part 1</div>
+                  <div className="intro_title">{this.props.name}</div>
                   <div className="intro_meta">
                     <div className="intro_image">
                       <img src={intro} alt />

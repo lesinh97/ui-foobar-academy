@@ -22,43 +22,34 @@ const mapDispatchToProps = dispatch => {
 class Course extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   courses: [
-    //     {
-    //       img: course_1,
-    //       title: "Vocabulary",
-    //       instructors: "Mai Nam Hai",
-    //       lang: "English",
-    //       description: "Everything is easy",
-    //       price: "150$",
-    //       participants: "123"
-    //     },
-    //     {
-    //       img: course_2,
-    //       title: "Grammar",
-    //       instructors: "Inferno",
-    //       lang: "Japanese",
-    //       description: "Get an JLPT N3",
-    //       price: "350$",
-    //       participants: "500"
-    //     },
-    //     {
-    //       img: course_3,
-    //       title: "Listening",
-    //       instructors: "Vodkashinikov",
-    //       lang: "Spainish",
-    //       description: "Hearing aid",
-    //       price: "300$",
-    //       participants: "40"
-    //     },
-    //   ]
-    // }
+    this.state = {
+      courses: [
+        {
+          img: course_1,
+        },
+        {
+          img: course_2,
+        },
+        {
+          img: course_3,
+        },
+      ]
+    }
   }
 
   componentDidMount() {
     apiCall('courses').then(res => {
-      this.props.loadBestCourses(res.data.tableData.data.slice(0,3))
-    });
+      let data = res.data.tableData.data.slice(0,3)
+      let dataaaa = data.map((i,j) => {
+        return {
+          ...i,
+          img: this.state.courses[j].img 
+        }
+      })
+      this.props.loadBestCourses(dataaaa)
+      console.log(dataaaa);
+    }
+    );
   }
 
   render() {

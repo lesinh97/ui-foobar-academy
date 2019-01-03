@@ -81,7 +81,7 @@ class Flag extends React.Component {
       <div className="owl-stage" style= {outerstyle}>
         {
           this.state.flags.map((item,index) => (
-          <div className="owl-item cloned" style = {itemStyle}>
+          <div className="owl-item active" style = {itemStyle}>
             <div className="owl-item language_item">
             <a href="#">
               <div className="flag">

@@ -13,7 +13,7 @@ class SingleCourse extends React.Component {
           </div>
           <div className="course_body">
             <div className="course_title">
-              <Link to="/course_detail">{this.props.title}</Link>
+              <Link to={"/course_detail/" + this.props.id}>{this.props.title}</Link>
             </div>
             <div className="course_info">
               <ul>

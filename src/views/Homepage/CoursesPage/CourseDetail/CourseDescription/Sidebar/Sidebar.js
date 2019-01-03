@@ -1,6 +1,7 @@
 import React from "react";
 import CourseFeature from "./CourseFeature";
 import LikeItem from "./LikeItem";
+import Modal from "./Modal";
 import cert from "../../../../../../components/images/cert.jpg";
 class Sidebar extends React.Component {
   render() {
@@ -8,13 +9,15 @@ class Sidebar extends React.Component {
       <div className="sidebar">
         <div className="sidebar_background" />
         <div className="sidebar_top">
-          <a href="#">buy course</a>
+          <a href="#" data-toggle="modal" data-target="#squarespaceModal" role= "button" >Apply this course</a>
         </div>
+        {}
+        <Modal />
         <div className="sidebar_content">
           {}
           <div className="sidebar_section features">
             <div className="sidebar_title">Course Features</div>
-            <CourseFeature />
+            <CourseFeature duration = {this.props.duration} />
           </div>
           {}
           <div className="sidebar_section cert">

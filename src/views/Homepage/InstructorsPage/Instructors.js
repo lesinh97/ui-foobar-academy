@@ -28,63 +28,55 @@ const mapDispatchToProps = dispatch => {
 class Instructors extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   teachers: [
-    //     {
-    //       img: img1,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img2,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img3,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img4,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img5,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img6,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img7,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img8,
-    //       name: "Mai Nam Hai",
-    //       title: "Lecturer"
-    //     },
-    //     {
-    //       img: img9,
-    //       name: "Nademan",
-    //       title: "Pro player"
-    //     },
-    //   ]
-    // }
+    this.state = {
+      teachers: [
+        {
+          img: img1,
+        },
+        {
+          img: img2,
+        },
+        {
+          img: img3,
+        },
+        {
+          img: img4,
+        },
+        {
+          img: img5,
+        },
+        {
+          img: img6,
+        },
+        {
+          img: img7,
+        },
+        {
+          img: img8,
+        },
+        {
+          img: img9,
+        },
+      ]
+    }
   }
 
   componentDidMount() {
-    apiCall('teachers').then(res =>
-      this.props.loadInstructors(res.data)
+    apiCall('teachers').then(res => {
+      let data = res.data;
+      let dataaaa = data.map((i,j) => {
+        return {
+          ...i,
+          img: this.state.teachers[j].img 
+        }
+      })
+      this.props.loadInstructors(dataaaa);
+      console.log(dataaaa);
+    }
     );
   }
   render() {
+    // console.log(this.props.teachers);
     return (
       <div className="teachers">
         <div className="container">
@@ -96,8 +88,8 @@ class Instructors extends React.Component {
             </div>
           </div>
           <div className="row teachers_row">
-            { this.props.teachers.map((item,index)=> (
-              <SingleInstructor img = {item.img} title = {item.title} name = {item.name} /> 
+            {this.props.teachers.map((item, index) => (
+              <SingleInstructor img={item.img} title={item.title} name={item.name} />
             ))
             }
           </div>

@@ -4,6 +4,10 @@ export const loadCourses = payload => {
   return { type: types.LOAD_COURSES, payload }
 }
 
+export const loadSingleCourse = payload => {
+  return { type: types.LOAD_SINGLE_COURSE, payload }
+}
+
 export const loadBestCourses = payload => {
   return { type: types.LOAD_BEST_COURSES, payload }
 }

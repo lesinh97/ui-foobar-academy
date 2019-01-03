@@ -21,33 +21,32 @@ const mapDispatchToProps = dispatch => {
 class Instructor extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   instructors: [
-    //     {
-    //       img: instructor_1,
-    //       name: "Vo Duc Hoang",
-    //       title: "Internship",
-    //       description: "Full eco rush mid"
-    //     },
-    //     {
-    //       img: instructor_2,
-    //       name: "Nguyen Van Nguyen",
-    //       title: "Feeder",
-    //       description: "Force buy"
-    //     },
-    //     {
-    //       img: instructor_3,
-    //       name: "Pham Minh Tuan",
-    //       title: "Leader",
-    //       description: "Full eco rush mid"
-    //     },
-    //   ]
-    // }
+    this.state = {
+      instructors: [
+        {
+          img: instructor_1,
+        },
+        {
+          img: instructor_2,
+        },
+        {
+          img: instructor_3,
+        },
+      ]
+    }
   }
 
   componentDidMount() {
     apiCall('teachers').then(res => {
-      this.props.loadBestInstructors(res.data.slice(0, 3));
+      let data = res.data.slice(0,3);
+      let dataaaa = data.map((i,j) => {
+        return {
+          ...i,
+          img: this.state.instructors[j].img 
+        }
+      })
+      this.props.loadBestInstructors(dataaaa);
+      console.log(dataaaa);
     })
   }
 

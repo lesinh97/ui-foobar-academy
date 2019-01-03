@@ -21,8 +21,8 @@ class CourseDescription extends React.Component {
                     <div className="row">
                       <div className="col-lg-9">
                         <div className="tabs d-flex flex-row align-items-center justify-content-start">
-                          <div className="tab active">description</div>
-                          <div className="tab">curriculum</div>
+                          <div className="tab">description</div>
+                          <div className="tab active">curriculum</div>
                           <div className="tab">reviews</div>
                           <div className="tab">members</div>
                         </div>
@@ -42,7 +42,7 @@ class CourseDescription extends React.Component {
             </div>
             {}
             <div className="col-lg-3">
-              <Sidebar />
+              <Sidebar duration = {this.props.duration} />
             </div>
           </div>
         </div>

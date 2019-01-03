@@ -10,7 +10,8 @@ class SingleInstructor extends React.Component {
         <div className="teacher d-flex flex-row align-items-center justify-content-start">
           <div className="teacher_image">
             <div>
-              <img src={this.props.img} alt />
+            <a href="#aboutModal" data-toggle="modal"><img src={this.props.img} alt /></a>
+            
             </div>
           </div>
           <div className="teacher_content">

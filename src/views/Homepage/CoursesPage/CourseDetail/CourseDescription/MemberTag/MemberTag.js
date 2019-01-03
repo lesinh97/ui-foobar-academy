@@ -4,7 +4,7 @@ import Members from "./Members";
 class MemberTag extends React.Component {
   render() {
     return (
-      <div className="tab_panel members">
+      <div className="tab_panel members active">
         <div className="panel_title">Members</div>
         <div className="panel_text">
           <p>

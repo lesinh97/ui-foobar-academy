@@ -2,7 +2,6 @@ import React from "react";
 
 class RegisterForm extends React.Component {
   render() {
-    const css = this.props.css;
     return (
       <div className="col-lg-6">
         <div className="register_form_container">

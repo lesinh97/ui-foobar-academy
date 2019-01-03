@@ -37,7 +37,7 @@ class Homepage extends Component{
                 <Route path="/courses" component={AsyncCoursePage} />
                 <Route path="/instructors" component={AsyncTeacherPage} />
                 <Route path="/blogs" component={AsyncBlogPage} />
-                <Route path="/course_detail" component={AsyncCourseDetailPage} />
+                <Route path="/course_detail/:id" component={AsyncCourseDetailPage} />
                 <Redirect exact from="/" to="/homepage" />
             </Switch>
         )

@@ -11,7 +11,7 @@ class CourseFeature extends React.Component {
               <i className="fa fa-clock-o" aria-hidden="true" />
               <span>Duration</span>
             </div>
-            <div className="feature_text ml-auto">2 weeks</div>
+            <div className="feature_text ml-auto">{this.props.duration} weeks</div>
           </li>
         </ul>
       </div>
