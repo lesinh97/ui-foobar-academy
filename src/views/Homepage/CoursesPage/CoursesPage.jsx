@@ -75,7 +75,7 @@ class CoursePage extends React.Component {
 
   componentDidMount() {
     apiCall('courses').then(res => {
-      console.log(res);
+      // console.log(res);
       let dataaaa = res.data.tableData.data.map((i,j) => {
         return {
           ...i,
@@ -83,7 +83,7 @@ class CoursePage extends React.Component {
         }
       })
       this.props.loadCourses(dataaaa)
-      console.log(dataaaa);
+      // console.log(dataaaa);
     }
     );
   }
