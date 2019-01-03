@@ -26,6 +26,16 @@ import img19 from '../../../components/images/course_13.jpg';
 import img20 from '../../../components/images/course_13.jpg';
 import img21 from '../../../components/images/course_13.jpg';
 import img22 from '../../../components/images/course_13.jpg';
+import img23 from '../../../components/images/course_9.jpg';
+import img24 from '../../../components/images/course_10.jpg';
+import img25 from '../../../components/images/course_11.jpg';
+import img26 from '../../../components/images/course_12.jpg';
+import img27 from '../../../components/images/course_13.jpg';
+import img28 from '../../../components/images/course_1.jpg';
+import img29 from '../../../components/images/course_2.jpg';
+import img30 from '../../../components/images/course_3.jpg';
+import img31 from '../../../components/images/course_4.jpg';
+
 
 
 import apiCall from '../../../utils/ultility';
@@ -69,6 +79,15 @@ class CoursePage extends React.Component {
         {img: img20,},
         {img: img21,},
         {img: img22,},
+        {img: img23,},
+        {img: img24,},
+        {img: img25,},
+        {img: img26,},
+        {img: img27,},
+        {img: img28,},
+        {img: img29,},
+        {img: img30,},
+        {img: img31,},
       ]
     }
   }
