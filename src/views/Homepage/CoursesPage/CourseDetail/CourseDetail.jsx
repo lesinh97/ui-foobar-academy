@@ -27,6 +27,7 @@ class CourseDetail extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     apiCall('courses/'+id).then(res => {
+      console.log(res.data)
       this.props.loadSingleCourse(res.data)
     });
   }
@@ -35,8 +36,11 @@ class CourseDetail extends React.Component {
     const style = {
       backgroundImage: `url(${intro})`
     }
+    console.log(this.props.singleCourse)
     const courseFromAPI = {...this.props.singleCourse.courseData};
-    console.log(this.props.singleCourse.courseClass);
+    const classInCourse = this.props.singleCourse.courseClass;
+    console.log(courseFromAPI);
+    console.log(classInCourse)
     return(
       <div>
       <div className= "parallax-mirror" style = {style}>
@@ -44,7 +48,7 @@ class CourseDetail extends React.Component {
       </div>
       <div className="super_container">
         <Header />
-        <CourseDescription duration = {courseFromAPI.duration} />
+        <CourseDescription duration = {courseFromAPI.duration} classes = {classInCourse} />
         <Footer />
       </div>
       </div>

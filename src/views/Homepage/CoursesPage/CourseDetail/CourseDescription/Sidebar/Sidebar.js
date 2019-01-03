@@ -52,7 +52,7 @@ class Sidebar extends React.Component {
           <a href="#" data-toggle="modal" data-target="#squarespaceModal" role= "button" onClick={this.openModal} >Apply this course</a>
         </div>
         <Modal
-        style={customStyles}
+          style={customStyles}
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="Example Modal"

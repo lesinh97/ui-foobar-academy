@@ -8,13 +8,10 @@ class MemberTag extends React.Component {
         <div className="panel_title">Members</div>
         <div className="panel_text">
           <p>
-            Lorem ipsum dolor sit amet, te eros consulatu pro, quem labores
-            petentium no sea, atqui posidonium interpretaris pri eu. At soleat
-            maiorum platonem vix, no mei case fierent. Primis quidam ancillae te
-            mei.
+            This course contain: 
           </p>
         </div>
-        <Members />
+        <Members classes = {this.props.classes} />
       </div>
     );
   }

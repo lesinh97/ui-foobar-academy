@@ -27,7 +27,7 @@ class CourseDescription extends React.Component {
                               <Tab><div className="tab">description</div></Tab> 
                               <Tab><div className="tab">curriculum</div></Tab>
                               <Tab><div className="tab">reviews</div></Tab>
-                              <Tab><div className="tab">members</div></Tab>
+                              <Tab><div className="tab">classes</div></Tab>
                             </div>
                             </TabList>
                             <TabPanel>
@@ -44,7 +44,7 @@ class CourseDescription extends React.Component {
                             </TabPanel>
                             <TabPanel>
                               {}
-                              <MemberTag />
+                              <MemberTag classes = {this.props.classes} />
                             </TabPanel>
                             </Tabs>
                       </div>
