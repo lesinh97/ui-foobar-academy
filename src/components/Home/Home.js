@@ -14,9 +14,9 @@ class Home extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col text-center">
-                <h1 className="home_title">Learn Languages Easily</h1>
+                <h1 className="home_title">The world class outsource Academy</h1>
                 <div className="home_button trans_200">
-                  <a href="#">get started</a>
+                  <a href="#">get hired</a>
                 </div>
               </div>
             </div>
