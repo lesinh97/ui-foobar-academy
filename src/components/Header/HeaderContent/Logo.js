@@ -5,7 +5,7 @@ class Logo extends React.Component {
     return (
       <div className="logo_container mr-auto">
         <a href="#">
-          <div className="logo_text">ANHIUXINH</div>
+          <div className="logo_text">Outsource Academy</div>
         </a>
       </div>
     );
