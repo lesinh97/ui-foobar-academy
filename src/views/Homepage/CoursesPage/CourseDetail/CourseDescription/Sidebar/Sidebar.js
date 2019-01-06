@@ -75,7 +75,7 @@ class Sidebar extends React.Component {
               <div className="row register_row">
                 <div className="col-lg-6 register_col">
                   <input
-                    type="text"
+                    type="name"
                     className="form_input"
                     placeholder="Name"
                     value={this.state.formName}

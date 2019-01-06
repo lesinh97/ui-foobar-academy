@@ -1,6 +1,6 @@
 import React from "react";
 import instructor_1 from '../images/instructor_1.jpg'
-import instructor_2 from '../images/instructor_2.jpg'
+import instructor_2 from '../images/instructor_7.jpg'
 import instructor_3 from '../images/instructor_3.jpg'
 import Modal from 'react-modal';
 import apiCall from '../../utils/ultility';
@@ -83,8 +83,8 @@ class Instructor extends React.Component {
        >
        <div id="gg">
         <center>
-        <img src={instructor_3}/>
-        <h3 class="media-heading">Gun'n Rose <small>USA</small></h3>
+        <img src={instructor_2}/>
+        <h3 class="media-heading">The Beatles <small>USA</small></h3>
         <span><strong>Skills: </strong></span>
             <span class="label label-warning">HTML5/CSS</span>
             <span class="label label-info">Adobe CS 5.5</span>
@@ -107,7 +107,7 @@ class Instructor extends React.Component {
             </div>
           </div>
           <div className="instructor_name">
-            <a href="#"  data-target="#gg" role= "button" onClick={this.openModal}>{item.name}</a>
+            <a  data-target="#gg" role= "button" onClick={this.openModal}>{item.name}</a>
           </div>
           <div className="instructor_title">{item.title}</div>
           <div className="instructor_text">
